@@ -1,2 +1,2 @@
-# HRMS_Project_DMDD
-DMDD Final Project ( Hotel Reservation Management System) 
+# HRMS_Project
+Hotel Reservation Management System
