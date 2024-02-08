@@ -1,81 +1,66 @@
-# HOTEL-MANAGEMENT-SYSTEM-DATABASE-PROJECT
+# Hotel Management System Database Project
 
-# Details
+## Overview
 
-A hotel is a hive of numerous operations such as front office, booking, and reservation, inventory, material management, quality management, security, energy management, housekeeping, CRM and more.
+A hotel operates through various interconnected departments such as front office, booking and reservation, inventory management, quality control, security, housekeeping, and more. This database project aims to streamline the management of these operations by efficiently storing and managing hotel-related information.
 
+## Functionality
 
-A hotel can be apart of different Hotel Chains. A hotel chain my have multiple hotels. A hotel has multiple rooms and floors, and these rooms can be of different types. By room type, each room has the different price and description. 
-A hotel has some employees to manage the services provided to customers. The customer can book the room either online or by cash payment at the hotel.
+- **Hotel Chains and Hotels**: Hotels can belong to hotel chains. Each hotel has multiple rooms and floors, and rooms can vary in type, price, and description.
+- **Guest Management**: Tracks guest information including name, address, and city.
+- **Booking Management**: Manages bookings based on dates, booking type, and room count.
+- **Room Management**: Designates room types with standard rates, descriptions, and smoking allowances.
+- **Rate Management**: Provides room rate periods for seasonal discounts.
+- **Queries**: Supports various queries such as guest count per month, available rooms for a given date, hotel count per chain, booking count per customer per year, rooms booked per hotel per date, unique countries with hotels, available rooms in a hotel, hotels with URLs, and room rates for specific periods.
 
+## Database Design
 
-The guest record is stored in hotel database which contains customer identity, his address, check in time, check out time, etc.
+### Tables Breakdown
 
-# Hotel info should include:
+1. **Hotel_Chain**
+   - Attributes: Chain_ID (Primary Key), Chain_Name
 
-Countries
+2. **Hotel**
+   - Attributes: Hotel_ID (Primary Key), Chain_ID (Foreign Key), Hotel_Name, Hotel_URL, Star_Rating, Image_URL, Room_Capacity, Floor_Count, Address_ID (Foreign Key)
 
-Hotel Chain Name
+3. **Address**
+   - Attributes: Address_ID (Primary Key), Street_Address, City, State, Country, Postal_Code
 
-Hotel Name
+4. **Room_Type**
+   - Attributes: Type_ID (Primary Key), Type_Name, Standard_Rate, Description, Smoking_Allowed
 
-Hotel URL
+5. **Booking**
+   - Attributes: Booking_ID (Primary Key), Guest_ID (Foreign Key), Room_ID (Foreign Key), Check_In_Date, Check_Out_Date, Booking_Type
 
-Hotel Characteristics (Description)
+6. **Guest**
+   - Attributes: Guest_ID (Primary Key), Name, Address_ID (Foreign Key)
 
-A Hotel must have one and only one STAR_RATING
+7. **Room**
+   - Attributes: Room_ID (Primary Key), Hotel_ID (Foreign Key), Type_ID (Foreign Key), Room_Number
 
-Each star rating has an image
+8. **Room_Rate_Period**
+   - Attributes: Rate_Period_ID (Primary Key), Start_Date, End_Date, Rate
 
-A Hotel has a ROOM CAPACITY and FLOOR COUNT
+### Relationships
 
-A Hotel can have one and only one ADDRESS.
+- Hotel_Chain (1) to Hotel (Many)
+- Hotel (1) to Address (1)
+- Hotel (1) to Room (Many)
+- Hotel (1) to Room_Type (Many)
+- Booking (Many) to Guest (1)
+- Booking (Many) to Room (1)
+- Guest (1) to Address (1)
+- Room (1) to Room_Type (1)
 
-# Other hotel requirements:
+## Additional Requirements
 
-Track guests based on their name, address, city
+- Work in groups of 2 or 3 and track individual contributions.
+- Each team member must submit a breakdown for at least 2 tables in the database.
+- Normalize the database to 3rd normal form.
+- Create an EER Model of the database structure.
+- Include primary and foreign keys where appropriate.
 
-Track bookings based on dates, booking type, and room count
+## Conclusion
 
-Designate Room Types with a standard rate, room description, and if smoking is allowed
-
-There will be room rate periods to give discounts at various times of the year (e.g. Jan to March, July to Aug, Sept to Dec)
-
-# Queries that will be required:
-
-How many distinct guest have made bookings for a particular month?
-
-How many available rooms are in a particular hotel for a given date?
-
-How many hotels are in a hotel chain?
-
-How many books has a customer made in one year?
-
-How many rooms are booked in a particular hotel on a given date?
-
-List all the unique countries hotels are located in.
-
-How many rooms are available in a given hotel?
-
-List all the hotels that have a URL available.
-
-List the rate for a room at a given time during the year.
-
-# Additional Requirements:
-
-Work in groups of 2 or 3 to complete the work order
-
-Each team member must track their work and submit with their final project files (Use the included time-tracker.xlsx file)
-
-Each team member must submit a table breakdown in written form for at least 2 tables in the database. These tables must be unique from the other members in your group.
-
-Work in teams to determine the tables and relationships required
-
-Database must be normalized to 3rd normal form
-
-Create an EER Model of the completed database structure (Image file is acceptable)
-
-Make sure to include primary/foreign keys where appropriate
-
-Review the attached work log for additional views/functions required
+This Hotel Management System Database Project aims to provide an efficient and organized solution for managing hotel operations. With its comprehensive design and normalized structure, it enables seamless tracking and retrieval of hotel-related information, contributing to enhanced efficiency and customer satisfaction.
 
